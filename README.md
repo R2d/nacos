@@ -1,20 +1,38 @@
 
-<img src="doc/Nacos_Logo.png" width="50%" syt height="50%" />
 
-# Nacos: Dynamic  *Na*ming and *Co*nfiguration *S*ervice
-
-[![Gitter](https://badges.gitter.im/alibaba/nacos.svg)](https://gitter.im/alibaba/nacos?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)   [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
-[![Gitter](https://travis-ci.org/alibaba/nacos.svg?branch=master)](https://travis-ci.org/alibaba/nacos)
+# Nacos 学习笔记
 
 -------
 
-## What does it do
+## nacos源码启动
 
-Nacos (official site: [nacos.io](https://nacos.io)) is an easy-to-use platform designed for dynamic service discovery and configuration and service management. It helps you to build cloud native applications and microservices platform easily.
+### 方法一 
 
-Service is a first-class citizen in Nacos. Nacos supports almost all type of services，for example，[Dubbo/gRPC service](https://nacos.io/en-us/docs/use-nacos-with-dubbo.html), [Spring Cloud RESTFul service](https://nacos.io/en-us/docs/use-nacos-with-springcloud.html) or [Kubernetes service](https://nacos.io/en-us/docs/use-nacos-with-kubernetes.html).
+在根目录执行打包命令(最好在根目录中使用cmd执行)
+>mvn -Prelease-nacos -Dmaven.test.skip=true clean install -U
+> 
+之后会创建一个distribution目录，然后可以在 distribution/target/nacos-server/nacos/bin下启动
 
-Nacos provides four major functions.
+>sh startup.sh -m standalone
+> 
+即可启动nacos服务，本地访问 localhost:8848/nacos 登录控制台  
+
+
+
+### 方法二
+
+找到Nacos-console包，修改application.properties的db信息
+然后启动参数加上
+>-Dnacos.standalone=true -Dnacos.home=D:\code\nacos\distribution
+> 
+启动启动类App
+
+
+
+
+
+
+
 
 * **Service Discovery and Service Health Check** 
     
